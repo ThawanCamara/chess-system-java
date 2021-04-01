@@ -3,12 +3,13 @@ package boardlayer;
 public class Board {
 
 	private int rows;
-	private int column;
+	private int columns;
+	private Piece[][] pieces;
 	
-	public Board(int rows, int column) {
-		super();
+	public Board(int rows, int columns) {
 		this.rows = rows;
-		this.column = column;
+		this.columns = columns;
+		pieces = new Piece[rows][columns];
 	}
 
 	public int getRows() {
@@ -19,22 +20,22 @@ public class Board {
 		this.rows = rows;
 	}
 
-	public int getColumn() {
-		return column;
+	public int getColumns() {
+		return columns;
 	}
 
-	public void setColumn(int column) {
-		this.column = column;
+	public void setColumns(int columns) {
+		this.columns = columns;
 	}
 
 	public Piece piece(int row, int column)
 	{
-		
+		return pieces[row][column];
 	}
 	
 	public Piece piece(Position position)
 	{
-		
+		return pieces[position.getRow()][position.getColumn()];
 	}
 	
 	public void placePiece(Piece piece, Position position)
